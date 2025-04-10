@@ -1,0 +1,36 @@
+{
+	"name": "league-bot",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "nodemon --exec ts-node bot/index.ts",
+		"start": "ts-node bot/index.ts",
+		"build": "tsc",
+		"migrate": "prisma migrate dev",
+		"generate": "prisma generate"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"devDependencies": {
+		"@types/express": "^5.0.1",
+		"@types/node": "^22.14.0",
+		"nodemon": "^3.1.9",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"@discordjs/rest": "^2.4.3",
+		"@prisma/client": "^6.6.0",
+		"axios": "^1.8.4",
+		"discord-api-types": "^0.37.120",
+		"discord.js": "^14.18.0",
+		"dotenv": "^16.4.7",
+		"express": "^5.1.0",
+		"googleapis": "^148.0.0",
+		"prisma": "^6.6.0",
+		"sqlite3": "^5.1.7"
+	}
+}
