@@ -8,5 +8,11 @@ if [ ! -f "/app/data/dev.db" ]; then
     cp dev.db /app/data/ 2>/dev/null || touch /app/data/dev.db
 fi
 
-# Start the application
-npm start 
+# Start the application in the background
+node dist/index.js &
+
+# Wait for the server to start
+sleep 10
+
+# Keep the container running
+tail -f /dev/null 

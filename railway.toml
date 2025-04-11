@@ -3,11 +3,12 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 
 [deploy]
-startCommand = "npm start"
+startCommand = "chmod +x start.sh && ./start.sh"
 healthcheckPath = "/"
-healthcheckTimeout = 30
+healthcheckTimeout = 60
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
+initialDelaySeconds = 30
 
 [deploy.volumes]
 "/app/data" = "data" 
