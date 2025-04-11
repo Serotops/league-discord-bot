@@ -147,15 +147,15 @@ discordClient.on('interactionCreate', async (interaction) => {
 });
 
 // Express routes
-app.get('/', (req: Request, res: Response) => {
+app.get('/health', (req: Request, res: Response) => {
 	res.status(200).json({ status: 'ok', message: 'Server is running' });
 });
 
 app.get('/health', (req: Request, res: Response) => {
-	res.status(200).json({ 
+	res.status(200).json({
 		status: 'ok',
 		timestamp: new Date().toISOString(),
-		uptime: process.uptime()
+		uptime: process.uptime(),
 	});
 });
 
