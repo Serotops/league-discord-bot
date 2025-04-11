@@ -5,10 +5,14 @@ buildCommand = "npm run build"
 [deploy]
 startCommand = "chmod +x start.sh && ./start.sh"
 healthcheckPath = "/"
-healthcheckTimeout = 60
+healthcheckTimeout = 120
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 10
-initialDelaySeconds = 30
+initialDelaySeconds = 60
 
 [deploy.volumes]
-"/app/data" = "data" 
+"/app/data" = "data"
+
+[deploy.env]
+PORT = "3000"
+NODE_ENV = "production" 
