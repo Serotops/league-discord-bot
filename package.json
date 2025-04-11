@@ -5,7 +5,7 @@
 	"main": "dist/index.js",
 	"scripts": {
 		"dev": "ts-node src/index.ts",
-		"start": "node dist/index.js",
+		"start": "if [ \"$NODE_ENV\" = \"production\" ]; then ./start.sh; else node dist/index.js; fi",
 		"build": "tsc",
 		"migrate": "prisma migrate dev",
 		"generate": "prisma generate",
