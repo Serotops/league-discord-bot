@@ -148,7 +148,15 @@ discordClient.on('interactionCreate', async (interaction) => {
 
 // Express routes
 app.get('/', (req: Request, res: Response) => {
-	res.send('Bot is running!');
+	res.status(200).json({ status: 'ok', message: 'Server is running' });
+});
+
+app.get('/health', (req: Request, res: Response) => {
+	res.status(200).json({ 
+		status: 'ok',
+		timestamp: new Date().toISOString(),
+		uptime: process.uptime()
+	});
 });
 
 app.get(
@@ -255,9 +263,15 @@ app.get(
 
 // Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
 	console.log(`🌐 Serveur Express lancé sur http://localhost:${PORT}`);
 	console.log('Bot is ready!');
+});
+
+// Handle server errors
+server.on('error', (error) => {
+	console.error('Server error:', error);
+	process.exit(1);
 });
 
 // Start the bot

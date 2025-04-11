@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exit on error
+set -e
+
 # Create data directory if it doesn't exist
 mkdir -p /app/data
 
@@ -9,4 +12,5 @@ if [ ! -f "/app/data/dev.db" ]; then
 fi
 
 # Start the application
+echo "Starting application..."
 node dist/index.js 
