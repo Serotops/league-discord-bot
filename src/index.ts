@@ -147,6 +147,10 @@ discordClient.on('interactionCreate', async (interaction) => {
 });
 
 // Express routes
+app.get('/', (req: Request, res: Response) => {
+	res.send('Bot is running!');
+});
+
 app.get(
 	'/auth/callback',
 	async (req: Request, res: Response): Promise<void> => {
